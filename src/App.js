@@ -26,6 +26,14 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+      return <h1> Loading... </h1>;
+    } else if (this.state.errorMessage) {
+      return <h1> {this.state.errorMessage} </h1>;
+    }
+    return (
+      <EarthquakesList list={this.state.earthquakes} />
+    );
   }
 }
 
