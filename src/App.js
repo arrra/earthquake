@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import EarthquakesList from './EarthquakesList';
+import earthquakeApi from './EarthquakeApi';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      earthquakes: [],
+      isLoading: true,
+      errorMessage: '',
+    };
+  }
+
+  componentDidMount() {
+    earthquakeApi
+      .getData()
+      .then(earthquakes => this.setState({...earthquakes, isLoading: false}))
+      .catch(err => {
+        this.setState({
+          errorMessage: 'Opps! Trouble loading earthquake data',
+          isLoading: false,
+        });
+      });
+  }
+
+  render() {
+  }
 }
 
 export default App;
+
