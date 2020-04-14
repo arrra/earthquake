@@ -2,6 +2,7 @@ import React from 'react';
 import EarthquakesList from './EarthquakesList';
 import earthquakeApi from './EarthquakeApi';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -32,10 +33,15 @@ class App extends React.Component {
       return <h1> {this.state.errorMessage} </h1>;
     }
     return (
-      <EarthquakesList list={this.state.earthquakes} />
+      <Router>
+        <Switch>
+          <Route path="/">
+            <EarthquakesList list={this.state.earthquakes} />
+          </Route>
+        </Switch>
+      </Router>
     );
   }
 }
 
 export default App;
-
