@@ -1,6 +1,6 @@
 import React from 'react';
 import Earthquake from './Earthquake';
-import EarthquakesColumns from './EarthquakesColumns';
+import EarthquakesColumns from './EarthquakeColumns';
 
 function EarthquakesList({list}) {
   return (

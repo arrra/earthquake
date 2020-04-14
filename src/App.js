@@ -1,6 +1,7 @@
 import React from 'react';
-import EarthquakesList from './EarthquakesList';
-import earthquakeApi from './EarthquakeApi';
+import EarthquakesList from './Earthquake/EarthquakeList';
+import earthquakeApi from './Earthquake/EarthquakeApi';
+import MapContainer from './Earthquake/EarthquakeMap';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -35,6 +36,7 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
+          <Route path="/map" component={MapContainer} />
           <Route path="/">
             <EarthquakesList list={this.state.earthquakes} />
           </Route>
