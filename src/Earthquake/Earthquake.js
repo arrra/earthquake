@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const updateMagnitudeBorder = magnitude => {
   let style = 'quakes__item';
@@ -13,9 +14,11 @@ function Earthquake({info}) {
       <div className="quake__column">{info.magnitude}</div>
 
       <div className="quake__column">
-        <button type="button" className="btn">
-          Map
-        </button>
+        <Link to={`/map?lat=${info.lat}&lng=${info.lng}`}>
+          <button type="button" className="btn">
+            Map
+          </button>
+        </Link>
       </div>
 
       <div className="quake__column">
@@ -38,4 +41,3 @@ function Earthquake({info}) {
 }
 
 export default Earthquake;
-
