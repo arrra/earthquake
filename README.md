@@ -12,3 +12,5 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
+Then press A to run all the tests.
+
